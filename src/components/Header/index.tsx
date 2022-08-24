@@ -2,6 +2,7 @@ import logoImg from '../../assets/logo.svg'
 import * as Dialog from '@radix-ui/react-dialog';
 
 import { HeaderContainer, HeaderContent, NewTransactionButton } from './styles'
+import { NewTransactionModal } from '../NewTransactionModal';
 
 export function Header() {
   return(
@@ -10,18 +11,12 @@ export function Header() {
         <img src={logoImg} alt="" />
         
         <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <NewTransactionButton> Nova Transação</NewTransactionButton>
-            </Dialog.Trigger>
+          <Dialog.Trigger asChild>
+            <NewTransactionButton>Nova Transação</NewTransactionButton>
+          </Dialog.Trigger>
 
-            <Dialog.Portal>
-              <Dialog.Overlay />
+          <NewTransactionModal />
 
-              <Dialog.Content>
-                <Dialog.Title>Nova Transação</Dialog.Title>
-                <Dialog.Close />
-              </Dialog.Content>
-            </Dialog.Portal>
         </Dialog.Root>
       </HeaderContent>
     </HeaderContainer>
