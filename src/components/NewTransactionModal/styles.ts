@@ -53,7 +53,14 @@ export const Content = styled(Dialog.Content)`
       margin-top: 1.5rem;
       cursor: pointer;
 
-      &:hover {
+      // quando botão estiver desabilitado
+      &:disabled {
+        opacity: 0.6;
+        cursor:  not-allowed;
+      }
+
+      // estado de hover só aplico quando o botão não estiver desabilitado
+      &:not(:disabled):hover {
         background: ${props => props.theme["green-700"]};
         transition: background-color 0.2s;
       }
