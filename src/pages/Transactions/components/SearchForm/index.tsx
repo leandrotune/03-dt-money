@@ -14,7 +14,7 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema> 
 
 export function SearcForm() {
-  const { register, handleSubmit, formState: {isSubmitting} } = useForm<SearchFormInputs>({
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema)
   })
   
