@@ -4,6 +4,8 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { SearchFormContainer } from "./styles";
+import { useContext } from "react";
+import { TransactionsContext } from "../../../../contexts/TransactionsContext";
 
 // Schema do Formulário: tipos de dados do input
 const searchFormSchema = z.object({
@@ -14,15 +16,14 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema> 
 
 export function SearcForm() {
+  const { fetchTransactions } = useContext(TransactionsContext)
+
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema)
   })
   
   async function handleSearchTransactions(data: SearchFormInputs) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log(data)
-
+    await fetchTransactions(data.query)
   }
 
   return(
