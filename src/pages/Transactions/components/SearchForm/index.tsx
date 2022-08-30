@@ -1,11 +1,11 @@
-import { MagnifyingGlass } from "phosphor-react";
-import { useForm } from "react-hook-form";
-import * as z from 'zod';
+import { MagnifyingGlass } from 'phosphor-react'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { SearchFormContainer } from "./styles";
-import { useContext } from "react";
-import { TransactionsContext } from "../../../../contexts/TransactionsContext";
+import { SearchFormContainer } from './styles'
+import { useContext } from 'react'
+import { TransactionsContext } from '../../../../contexts/TransactionsContext'
 
 // Schema do Formulário: tipos de dados do input
 const searchFormSchema = z.object({
@@ -13,31 +13,36 @@ const searchFormSchema = z.object({
 })
 
 // herdando o Schema como tipagem do formulário
-type SearchFormInputs = z.infer<typeof searchFormSchema> 
+type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearcForm() {
   const { fetchTransactions } = useContext(TransactionsContext)
 
-  const { register, handleSubmit, formState: { isSubmitting }, reset } = useForm<SearchFormInputs>({
-    resolver: zodResolver(searchFormSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+    reset,
+  } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
   })
-  
+
   async function handleSearchTransactions(data: SearchFormInputs) {
     await fetchTransactions(data.query)
 
     reset()
   }
 
-  return(
+  return (
     <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
-      <input 
-        type="text" 
-        placeholder="Busque por transações" 
-        {...register('query')}  
+      <input
+        type="text"
+        placeholder="Busque por transações"
+        {...register('query')}
       />
-      
+
       <button type="submit" disabled={isSubmitting}>
-        <MagnifyingGlass size={20} color="#00B37E"/>
+        <MagnifyingGlass size={20} color="#00B37E" />
         Buscar
       </button>
     </SearchFormContainer>

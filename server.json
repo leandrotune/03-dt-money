@@ -31,6 +31,14 @@
       "type": "outcome",
       "createdAt": "2022-08-30T17:01:26.041Z",
       "id": 4
+    },
+    {
+      "description": "sfdsdf",
+      "price": 6,
+      "category": "sdfsdf",
+      "type": "income",
+      "createdAt": "2022-08-30T17:24:51.479Z",
+      "id": 5
     }
   ]
 }

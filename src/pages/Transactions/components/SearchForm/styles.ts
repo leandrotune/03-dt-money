@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SearchFormContainer = styled.form`
   display: flex;
@@ -8,42 +8,41 @@ export const SearchFormContainer = styled.form`
     flex: 1;
     border-radius: 6px;
     border: 0;
-    background: ${props => props.theme["gray-900"]};
-    color: ${props => props.theme["gray-300"]};
+    background: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['gray-300']};
     padding: 1rem;
 
     &::placeholder {
-      color: ${props => props.theme["gray-500"]};
+      color: ${(props) => props.theme['gray-500']};
     }
   }
 
-    button {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 
-      border: 0;
-      padding: 1rem;
-      background: transparent;
-      border: 1px solid ${props => props.theme["green-300"]};
-      color: ${props => props.theme["green-300"]};
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      
-      // quando botão estiver desabilitado
-      &:disabled {
-        opacity: 0.6; 
-        cursor: not-allowed;
-      }
+    border: 0;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid ${(props) => props.theme['green-300']};
+    color: ${(props) => props.theme['green-300']};
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
 
-      // estado de hover só aplico quando o botão não estiver desabilitado
-      &:not(:disabled):hover {
-        background: ${props => props.theme["green-500"]};
-        border-color: 1px solid ${props => props.theme["green-500"]};
-        color: ${props => props.theme.white};
-        transition: background-color 0.2s color 0.2s border-color 0.2s;
-      }
+    // quando botão estiver desabilitado
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
-  
+
+    // estado de hover só aplico quando o botão não estiver desabilitado
+    &:not(:disabled):hover {
+      background: ${(props) => props.theme['green-500']};
+      border-color: 1px solid ${(props) => props.theme['green-500']};
+      color: ${(props) => props.theme.white};
+      transition: background-color 0.2s color 0.2s border-color 0.2s;
+    }
+  }
 `
