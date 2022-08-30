@@ -5,6 +5,9 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles';
+import { api } from '../../lib/axios';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 // Schema do Formulário: tipos de dados do input
 const newTransactionFormSchema = z.object({
@@ -18,7 +21,9 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const { control, register, handleSubmit, formState: {isSubmitting} } = useForm<NewTransactionFormInputs>({
+  const { createTransaction } = useContext(TransactionsContext)
+
+  const { control, register, handleSubmit, formState: {isSubmitting}, reset } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
       type: 'income',
@@ -26,9 +31,16 @@ export function NewTransactionModal() {
   })
 
   async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    const { description, price, category, type} = data
 
-    console.log(data)
+    await createTransaction({
+      description,
+      price,
+      category,
+       type,
+    }) 
+
+    reset()
   }
 
   return(

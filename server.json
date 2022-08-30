@@ -15,6 +15,22 @@
       "category": "alimentação",
       "price": 50,
       "createdAt": "2022-08-24T22:38:47.646Z"
+    },
+    {
+      "description": "Sorvete",
+      "price": 6,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-08-30T16:18:53.548Z",
+      "id": 3
+    },
+    {
+      "description": "Gasolina",
+      "price": 300,
+      "category": "carro",
+      "type": "outcome",
+      "createdAt": "2022-08-30T17:01:26.041Z",
+      "id": 4
     }
   ]
 }
