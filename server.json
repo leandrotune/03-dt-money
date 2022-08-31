@@ -39,6 +39,30 @@
       "type": "income",
       "createdAt": "2022-08-30T17:24:51.479Z",
       "id": 5
+    },
+    {
+      "description": "xczcx",
+      "price": 3,
+      "category": "zx",
+      "type": "income",
+      "createdAt": "2022-08-30T18:14:27.847Z",
+      "id": 6
+    },
+    {
+      "description": "Carne",
+      "price": 35,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2022-08-31T21:32:15.446Z",
+      "id": 7
+    },
+    {
+      "description": "Pagamento",
+      "price": 1662,
+      "category": "Salário",
+      "type": "income",
+      "createdAt": "2022-08-31T23:22:58.748Z",
+      "id": 8
     }
   ]
 }
