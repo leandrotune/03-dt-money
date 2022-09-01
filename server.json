@@ -63,6 +63,14 @@
       "type": "income",
       "createdAt": "2022-08-31T23:22:58.748Z",
       "id": 8
+    },
+    {
+      "description": "Pagamento",
+      "price": 4,
+      "category": "asda",
+      "type": "outcome",
+      "createdAt": "2022-09-01T21:29:08.411Z",
+      "id": 9
     }
   ]
 }
